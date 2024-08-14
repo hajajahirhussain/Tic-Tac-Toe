@@ -4,6 +4,20 @@ import os
 
 
 def update_text(screen, font_type, font_name, text, size, color, antialias, pos, bold):
+    """
+    Renders and displays text on the screen.
+
+    Args:
+        screen (pygame.Surface): The display surface to draw the text on.
+        font_type (str): The type of font to use ('sys' for system font, 'custom' for a specific font).
+        font_name (str): The name of the system font or the path to the custom font.
+        text (str): The text to be displayed.
+        size (int): The size of the font.
+        color (tuple): The color of the text as an RGB tuple.
+        antialias (bool): Whether the font should be antialiased.
+        pos (tuple): The position on the screen to display the text (x, y).
+        bold (bool): Whether the font should be bold.
+    """
     if font_type == "sys":
         font = pygame.font.SysFont(font_name, size, bold)
     elif font_type == "custom":
@@ -13,6 +27,19 @@ def update_text(screen, font_type, font_name, text, size, color, antialias, pos,
 
 
 def draw_x_or_o(screen, val, o_pos, x_pox, color=False):
+    """
+    Draws an 'X' or 'O' on the screen based on the current player's turn.
+
+    Args:
+        screen (pygame.Surface): The display surface to draw on.
+        val (int): The current turn value (even for 'X', odd for 'O').
+        o_pos (tuple): The position and size for drawing 'O'.
+        x_pos (list): The start and end points for drawing 'X'.
+        color (bool): Whether to draw the shape in the winning color.
+
+    Returns:
+        str: 'X' if 'X' was drawn, 'O' if 'O' was drawn.
+    """
     if val % 2 == 0:
         if not color:
             touch_sound.play()
@@ -32,6 +59,12 @@ def draw_x_or_o(screen, val, o_pos, x_pox, color=False):
 
 
 def play_ttt():
+    """
+    Main function to play the Tic Tac Toe game.
+
+    Handles the game loop, rendering, and input handling for the Tic Tac Toe game.
+    Plays sound effects for winning and drawing, and restarts the game after completion.
+    """
     winner_sound = pygame.mixer.Sound(my_path + r"\winner.wav")
     game_over_sound = pygame.mixer.Sound(my_path + r"\game_over_sound.wav")
     clock = pygame.time.Clock()
