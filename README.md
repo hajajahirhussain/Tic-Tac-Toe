@@ -18,4 +18,4 @@ This is a simple, yet engaging Tic Tac Toe game built using Python and the Pygam
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/tic-tac-toe-game.git
+   git clone https://github.com/hajajahirhussain/Tic-Tac-Toe.git
